@@ -1,14 +1,17 @@
 # Mattos Tech
+Portfólio pessoal. Disponível em:
+```
+mattos-tech.vercel.app
+```
 
-Portfólio pessoal desenvolvido por Pedro Franco.
 
 ## Tecnologias
-
+```
 - HTML5
 - CSS3
 - JavaScript
 - Chart.js
-
+```
 
 ## Deploy
 
