@@ -20,7 +20,6 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-
   color: var(--white);
   scroll-behavior: smooth;
 }
@@ -29,7 +28,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding:20px clamp(20px,8vw,10%);
+  padding: 20px clamp(20px, 8vw, 10%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,39 +111,35 @@ footer {
   opacity: .7;
 }
 
-/* Init of class */
-
 #main-projects p {
   font-size: 20px;
 }
 
 .contact-form {
-  margin: 40px auto 0; /* Centraliza o form e dá espaço do título */
+  margin: 40px auto 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
-  /* --- O segredo do tamanho aqui --- */
-  max-width: 600px;    /* Limita a largura máxima */
-  width: 90%;          /* Garante que seja responsivo em telas pequenas */
+  max-width: 600px;
+  width: 90%;
 }
 
-.contact-form input, 
+.contact-form input,
 .contact-form textarea {
-  padding: 18px 25px;  /* Aumenta o respiro interno */
-  font-size: 18px;     /* Fonte maior como solicitado */
+  padding: 18px 25px;
+  font-size: 18px;
   font-family: inherit;
-  
+
   color: white;
-  background: rgba(255, 255, 255, 0.211); /* Estilo Dark Glass */
+  background: rgba(255, 255, 255, 0.211);
+  /* Estilo Dark Glass */
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 15px;
   outline: none;
   transition: all 0.3s ease;
 }
 
-/* Efeito de foco para combinar com seu gradiente */
-.contact-form input:focus, 
+.contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #1e90ff;
   background: rgba(255, 255, 255, 0.08);
@@ -157,8 +152,7 @@ footer {
   font-weight: 600;
   color: white;
   cursor: pointer;
-  
-  /* Gradiente puxando para o verde do WhatsApp, mas no estilo do seu site */
+
   background: linear-gradient(90deg, #00b894, #00d3a3);
   border: none;
   border-radius: 15px;
@@ -171,7 +165,6 @@ footer {
   box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
 }
 
-/* Cor do placeholder para não sumir no fundo */
 ::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -182,16 +175,16 @@ footer {
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 40px;
-  
+
   background: linear-gradient(270deg,
-  #2563eb,
-  #1e90ff,
-  #00b894,
-  #2563eb);
-  
+      #2563eb,
+      #1e90ff,
+      #00b894,
+      #2563eb);
+
   background-size: 400% 400%;
   animation: gradientMove 6s ease infinite;
-  
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -221,22 +214,21 @@ footer {
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 40px;
-  
+
   background: linear-gradient(270deg,
-  #2563eb,
-  #1e90ff,
-  #00b894,
-  #2563eb);
-  
+      #2563eb,
+      #1e90ff,
+      #00b894,
+      #2563eb);
+
   background-size: 400% 400%;
   animation: gradientMove 6s ease infinite;
-  
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
-
 
 #github h3 {
   text-align: center;
@@ -420,16 +412,16 @@ footer {
     0 0 80px rgba(37, 99, 235, 0.3);
 }
 
-.languages-chart-container{
-  width:500px;
-  height:260px;
-  margin:auto;
+.languages-chart-container {
+  width: 500px;
+  height: 260px;
+  margin: auto;
   margin-top: 15px;
 }
 
-#languagesChart{
-  width:100% !important;
-  height:100% !important;
+#languagesChart {
+  width: 100% !important;
+  height: 100% !important;
   transition: all 0.3s ease;
 }
 
@@ -466,20 +458,20 @@ footer {
   backdrop-filter: blur(12px);
   transition: .4s;
   text-align: center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:30px;
-  gap:15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 15px;
   position: relative;
   overflow: hidden;
-  transition:all .35s ease;
+  transition: all .35s ease;
 }
 
-.tech-card h3{
-  font-size:1.1rem;
-  font-weight:600;
+.tech-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .tech-card:hover {
@@ -487,58 +479,52 @@ footer {
   box-shadow: 0 0 25px rgba(16, 0, 157, 0.9);
 }
 
-.tech-card::before{
-  content:"";
-  position:absolute;
-  top:-100%;
-  left:0;
-  width:100%;
-  height:200%;
-
-  background:linear-gradient(
-    120deg,
-    transparent 40%,
-    rgba(37,99,235,.15) 50%,
-    transparent 60%
-  );
-
-  transform:skewY(-8deg);
+.tech-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(120deg,
+      transparent 40%,
+      rgba(37, 99, 235, .15) 50%,
+      transparent 60%);
+  transform: skewY(-8deg);
 }
 
-.tech-card:hover::before{
-  animation:scanEffect 1.4s ease forwards;
+.tech-card:hover::before {
+  animation: scanEffect 1.4s ease forwards;
 }
 
-.tech-icons{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   margin-top: 15px;
-  opacity:.95;
-  transition:all .35s ease;
+  opacity: .95;
+  transition: all .35s ease;
 }
 
-.tech-icons img{
-  width:auto;
-  height:80px;
-  object-fit:contain;
+.tech-icons img {
+  width: auto;
+  height: 80px;
+  object-fit: contain;
 
   transition: transform .3s ease;
 }
 
-.tech-icons img:hover{
+.tech-icons img:hover {
   transform: scale(1.15);
 }
 
-.tech-card:hover .tech-icons img{
-  opacity:0.9;
-  transform:scale(1.05);
+.tech-card:hover .tech-icons img {
+  opacity: 0.9;
+  transform: scale(1.05);
 
   filter:
-    drop-shadow(0 0 6px rgba(37,99,235,.6))
-    drop-shadow(0 0 12px rgba(37,99,235,.5))
-    drop-shadow(0 0 18px rgba(37,99,235,.4));
+    drop-shadow(0 0 6px rgba(37, 99, 235, .6)) drop-shadow(0 0 12px rgba(37, 99, 235, .5)) drop-shadow(0 0 18px rgba(37, 99, 235, .4));
 }
 
 #tech h2 {
@@ -713,7 +699,6 @@ footer {
   transform: translateX(1px) translateY(-1px);
 }
 
-
 .stat {
   margin-bottom: 20px;
 }
@@ -734,8 +719,6 @@ footer {
   height: 100%;
   background: var(--green);
 }
-
-
 
 .pie-container {
   display: flex;
@@ -790,12 +773,13 @@ footer {
   transform: translateY(0);
 }
 
-@keyframes scanEffect{
-  from{
-    top:-120%;
+@keyframes scanEffect {
+  from {
+    top: -120%;
   }
-  to{
-    top:120%;
+
+  to {
+    top: 120%;
   }
 }
 
@@ -894,20 +878,15 @@ footer {
   }
 }
 
-/* ============================================================ */
-/* RESET MOBILE TOTAL - FOCO EM CENTRALIZAÇÃO E MARGENS REAIS   */
-/* ============================================================ */
 
 @media (max-width: 768px) {
-
-  /* 1. TRAVA DE SEGURANÇA CONTRA VAZAMENTOS */
-  html, body {
+  html,
+  body {
     overflow-x: hidden !important;
     max-width: 100vw !important;
     position: relative;
   }
 
-  /* 2. HEADER - Logo centralizado, nav em linha abaixo */
   header {
     position: fixed !important;
     top: 0;
@@ -920,8 +899,7 @@ footer {
     justify-content: center !important;
     gap: 8px !important;
     background: rgba(40, 61, 93, 0.97) !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    /* Garante que o border-image não quebre o layout */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     border-image: none !important;
     border-bottom: 1px solid rgba(37, 99, 235, 0.4) !important;
   }
@@ -953,7 +931,6 @@ footer {
     white-space: nowrap !important;
   }
 
-  /* 3. SEÇÕES GERAIS - overflow-x apenas, nunca hidden total (clipa canvas Chart.js) */
   section {
     padding: 100px 20px 50px !important;
     width: 100% !important;
@@ -963,10 +940,8 @@ footer {
     min-height: auto !important;
   }
 
-  /* 4. HERO (BACKEND DEVELOPER)
-     O .hero define seu próprio padding — precisa sobrescrever. */
   .hero {
-    padding: 110px 20px 50px !important; /* Extra no topo para não invadir o header de 2 linhas */
+    padding: 110px 20px 50px !important;
     min-height: 100vh !important;
     align-items: flex-start !important;
   }
@@ -1008,7 +983,6 @@ footer {
     text-align: center !important;
   }
 
-  /* Hero visual (ícones orbitais) — empilha e reduz */
   .hero-right {
     width: 100% !important;
     gap: 20px !important;
@@ -1038,7 +1012,6 @@ footer {
     height: 175px !important;
   }
 
-  /* 5. ESPECIALIDADES (PYTHON / SELENIUM) */
   #txt-abt-py-se {
     font-size: 15px !important;
     max-width: 100% !important;
@@ -1076,7 +1049,6 @@ footer {
     height: 60px !important;
   }
 
-  /* 6. GITHUB INSIGHTS */
   .github-container {
     padding: 20px !important;
     margin-top: 20px !important;
@@ -1094,7 +1066,6 @@ footer {
     box-sizing: border-box !important;
   }
 
-  /* Gráfico — altura comportada: donut compacto + 3 linhas de legenda embaixo */
   .languages-chart-container {
     width: 100% !important;
     max-width: 100% !important;
@@ -1102,7 +1073,6 @@ footer {
     margin: 15px 0 0 !important;
   }
 
-  /* pie-container não precisa mais empilhar — o canvas já cuida da legenda */
   .pie-container {
     flex-direction: column !important;
     align-items: center !important;
@@ -1111,7 +1081,8 @@ footer {
     gap: 0 !important;
   }
 
-  .pie-chart, #pieChart {
+  .pie-chart,
+  #pieChart {
     width: 100% !important;
     height: 100% !important;
     margin: 0 !important;
@@ -1123,8 +1094,6 @@ footer {
     gap: 10px !important;
   }
 
-  /* .legend e .legend-item são HTML fora do canvas — esconde no mobile
-     pois a legenda agora está dentro do Chart.js */
   .legend {
     display: none !important;
   }
@@ -1133,7 +1102,6 @@ footer {
     font-size: 15px !important;
   }
 
-  /* 7. PROJETOS */
   .projects {
     grid-template-columns: 1fr !important;
   }
@@ -1158,13 +1126,11 @@ footer {
     height: 50px !important;
   }
 
-  /* 8. CONTATO */
   .contact-form {
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* 9. GITHUB LOGO — centralizada na tela */
   .github-logo {
     width: 90px !important;
     display: block !important;
