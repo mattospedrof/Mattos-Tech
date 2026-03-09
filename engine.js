@@ -269,7 +269,6 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   const message = document.getElementById("message").value;
 
   const text = `Olá, meu nome é ${name}.
-  Mensagem:
   ${message}`;
 
   const url = `https://wa.me/5567993349290?text=${encodeURIComponent(text)}`;
