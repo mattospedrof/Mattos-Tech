@@ -261,7 +261,7 @@ fetchGitHubStats();
 // =============================
 // WhatsApp Redirect
 // =============================
-ddocument.getElementById("contactForm").addEventListener("submit", function(e){
+document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
 
   const name = document.getElementById("name").value;
@@ -269,8 +269,8 @@ ddocument.getElementById("contactForm").addEventListener("submit", function(e){
   const message = document.getElementById("message").value;
 
   const text = `Olá, meu nome é ${name}.
-Mensagem:
-${message}`;
+  Mensagem:
+  ${message}`;
 
   const url = `https://wa.me/5567993349290?text=${encodeURIComponent(text)}`;
 
