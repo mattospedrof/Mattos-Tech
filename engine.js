@@ -261,13 +261,21 @@ fetchGitHubStats();
 // =============================
 // WhatsApp Redirect
 // =============================
-document.getElementById("contactForm").addEventListener("submit", function(e){
+ddocument.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
-  const text = "Olá, gostaria de saber mais sobre seus serviços.";
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const text = `Olá, meu nome é ${name}.
+Mensagem:
+${message}`;
+
   const url = `https://wa.me/5567993349290?text=${encodeURIComponent(text)}`;
+
   window.open(url, "_blank");
 });
-
 
 // =============================
 // Scroll Reveal Universal
