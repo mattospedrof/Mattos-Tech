@@ -89,6 +89,16 @@ textarea {
   color: #111;
 }
 
+input:invalid,
+textarea:invalid{
+  border:2px solid rgba(255,80,80,0.6);
+}
+
+input:valid,
+textarea:valid{
+  border:2px solid rgba(46,204,113,0.7);
+}
+
 button {
   padding: 15px;
   border-radius: 12px;
@@ -167,6 +177,34 @@ footer {
 
 ::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.contact-buttons button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-buttons img{
+  width:24px;
+  height:24px;
+  object-fit:contain;
+}
+
+#emailBtn{
+  background:#ea4335;
+}
+
+#emailBtn:hover{
+  box-shadow: 0 10px 25px rgba(234, 67, 53, 0.45);
 }
 
 #contato h2 {
@@ -773,6 +811,27 @@ footer {
   transform: translateY(0);
 }
 
+.contact-form input.field-valid,
+.contact-form textarea.field-valid {
+  border-color: #00b894 !important;
+  box-shadow: 0 0 10px rgba(0, 184, 148, 0.25);
+}
+
+.contact-form input.field-invalid,
+.contact-form textarea.field-invalid {
+  border-color: #e17055 !important;
+  box-shadow: 0 0 10px rgba(225, 112, 85, 0.25);
+}
+
+.field-error-msg {
+  display: none;
+  font-size: 16px;
+  color: #ff7675;
+  margin-top: -12px;
+  margin-bottom: 4px;
+  padding-left: 4px;
+}
+
 @keyframes scanEffect {
   from {
     top: -120%;
@@ -879,7 +938,9 @@ footer {
 }
 
 
+
 @media (max-width: 768px) {
+
   html,
   body {
     overflow-x: hidden !important;

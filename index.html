@@ -24,7 +24,7 @@
   <header>
     <h1>Mattos Tech</h1>
     <nav>
-      <a href="#about-me">Sobre</a>
+      <a href="#top">Sobre</a>
       <a href="#tech">Especialidades</a>
       <a href="#main-projects">Projetos</a>
       <a href="#github">GitHub</a>
@@ -190,11 +190,28 @@
 
   <section id="contato" class="reveal">
     <h2>Contato</h2>
+
     <form class="contact-form" id="contactForm">
-      <input type="text" id="name" placeholder="Primeiro nome" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <textarea id="message" rows="3" required placeholder="Mensagem"></textarea>
-      <button type="submit">Falar no WhatsApp</button>
+
+      <input type="text" id="name" placeholder="Primeiro nome" pattern="[A-Za-zÀ-ÿ\s]{2,30}" required>
+      <input type="tel" id="phone" placeholder="Celular" maxlength="15" inputmode="numeric">
+      <input type="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+      <textarea id="message" rows="4" placeholder="Mensagem" maxlength="1000" required></textarea>
+
+      <div class="contact-buttons">
+
+        <button type="button" id="whatsappBtn">
+          <img src="media/whatsapp_logo.png" alt="WhatsApp">
+          Enviar WhatsApp
+        </button>
+
+        <button type="button" id="emailBtn">
+          <img src="media/mail_logo.png" alt="Email">
+          Enviar um Email
+        </button>
+
+      </div>
+
     </form>
   </section>
 
