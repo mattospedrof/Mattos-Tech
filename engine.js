@@ -1,3 +1,22 @@
+// =============================
+// Skill Bars — Animar ao revelar
+// =============================
+function animateSkillBars() {
+  const bars = document.querySelectorAll(".skill-bar-fill[data-width]");
+  bars.forEach(bar => {
+    const rect = bar.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60 && bar.style.width === "0%") {
+      bar.style.width = bar.dataset.width;
+    }
+  });
+}
+
+window.addEventListener("scroll", animateSkillBars);
+document.addEventListener("DOMContentLoaded", () => {
+  // Pequeno delay para garantir que o CSS já aplicou width:0%
+  setTimeout(animateSkillBars, 200);
+});
+
 // Typing Effect
 const words = ["Developer", "Engineer"];
 let i = 0, j = 0, currentWord = '', isDeleting = false;
@@ -62,8 +81,14 @@ async function fetchGitHubStats() {
   const TWELVE_HOURS = 12 * 60 * 60 * 1000;
 
   const now = Date.now();
-  const lastUpdate = localStorage.getItem(CACHE_TIME_KEY);
-  const cachedData = localStorage.getItem(CACHE_KEY);
+  let lastUpdate = null, cachedData = null;
+
+  try {
+    lastUpdate = localStorage.getItem(CACHE_TIME_KEY);
+    cachedData = localStorage.getItem(CACHE_KEY);
+  } catch(e) {
+    console.warn("localStorage indisponível (modo anônimo ou Safari ITP):", e);
+  }
 
   if (cachedData && lastUpdate && (now - lastUpdate < TWELVE_HOURS)) {
     console.log("Exibindo dados do cache (Atualizado há menos de 12h)");
@@ -105,9 +130,13 @@ async function fetchGitHubStats() {
       languages: langs
     };
 
-    // Salva no LocalStorage
-    localStorage.setItem(CACHE_KEY, JSON.stringify(finalData));
-    localStorage.setItem(CACHE_TIME_KEY, now.toString());
+    // Salva no LocalStorage (com proteção para modo anônimo/Safari)
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(finalData));
+      localStorage.setItem(CACHE_TIME_KEY, now.toString());
+    } catch(e) {
+      console.warn("Não foi possível salvar cache:", e);
+    }
 
     renderData(finalData);
 
@@ -247,6 +276,30 @@ function renderPieChart(languages) {
 }
 
 fetchGitHubStats();
+
+// Recria o gráfico se o usuário redimensionar a janela
+// (isMobile é capturado no momento da criação, então precisa recriar)
+let resizeTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    const canvas = document.getElementById("languagesChart");
+    if (!canvas) return;
+
+    const existing = Chart.getChart(canvas);
+    if (existing) existing.destroy();
+
+    try {
+      const cachedData = localStorage.getItem("gh_stats_data");
+      if (cachedData) {
+        const data = JSON.parse(cachedData);
+        renderPieChart(data.languages);
+      }
+    } catch(e) {
+      console.warn("Não foi possível recriar chart:", e);
+    }
+  }, 300);
+});
 
 
 // WhatsApp and Mail

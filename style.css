@@ -494,13 +494,11 @@ footer {
   border-radius: 24px;
   border: 2px solid rgba(255, 255, 255, .15);
   backdrop-filter: blur(12px);
-  transition: .4s;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* tudo parte do topo — alinha títulos */
   align-items: center;
-  padding: 30px;
   gap: 15px;
   position: relative;
   overflow: hidden;
@@ -543,11 +541,14 @@ footer {
   margin-top: 15px;
   opacity: .95;
   transition: all .35s ease;
+  /* Altura fixa: garante que todos os cards tenham a mesma área de ícone */
+  min-height: 100px;
 }
 
 .tech-icons img {
   width: auto;
   height: 80px;
+  max-height: 80px;
   object-fit: contain;
 
   transition: transform .3s ease;
@@ -832,6 +833,66 @@ footer {
   padding-left: 4px;
 }
 
+.skill-bars {
+  width: 100%;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skill-item {
+  width: 100%;
+  text-align: left;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.skill-label {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.skill-level {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-bar-fill.avancado {
+  background: linear-gradient(90deg, #2563eb, #00c3ff);
+}
+
+.skill-bar-fill.intermediario {
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+.skill-bar-fill.basico {
+  background: linear-gradient(90deg, #0f3d2e, #00b894);
+}
+
 @keyframes scanEffect {
   from {
     top: -120%;
@@ -936,7 +997,6 @@ footer {
     transform: rotate(360deg);
   }
 }
-
 
 
 @media (max-width: 768px) {
