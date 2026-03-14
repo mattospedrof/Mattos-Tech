@@ -202,11 +202,12 @@ function renderPieChart(languages) {
         data: values,
         borderWidth: 0,
         backgroundColor: [
-          "#3776AB",
+          "#070b5d",
           "#E34F26",
           "#F37626",
           "#239120",
-          "#336791"
+          "#336791",
+          "#e3eb0c"
         ],
         hoverOffset: 10
       }]
