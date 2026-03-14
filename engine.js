@@ -206,8 +206,8 @@ function renderPieChart(languages) {
           "#E34F26",
           "#F37626",
           "#239120",
-          "#336791",
-          "#e3eb0c"
+          "#e3eb0c",
+          "#336791"
         ],
         hoverOffset: 10
       }]
