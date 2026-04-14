@@ -1,9 +1,5 @@
 node_modules
 .DS_Store
 .env
-index_test.html
-engine_teste.js
-engine_test.js
-style_test.css
 .qwen
 RULES.MD
