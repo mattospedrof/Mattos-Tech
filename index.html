@@ -6,6 +6,9 @@
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Frannkz Tech By Pedro Franco">
+  <meta name="theme-color" content="#0a192f">
+  <meta name="keywords" content="backend developer, python, selenium, APIs, automação, Pedro Franco">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://api.github.com https://wa.me; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.github.com; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline';">
   <title>Frannkz Tech</title>
 
   <meta property="og:type"        content="website">
@@ -19,76 +22,86 @@
   <link rel="icon" href="media/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_test.css">
 </head>
 
 <body>
 
+  <!-- ============ HEADER ============ -->
   <header>
-    <h1>Frannkz Tech</h1>
-    <nav>
-      <a href="#top">Sobre</a>
+    <div class="header-content">
+      <h1 class="logo">Frannkz Tech</h1>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav role="navigation" aria-label="Menu principal">
+      <a href="#hero">Sobre</a>
       <a href="#tech">Especialidades</a>
       <a href="#main-projects">Projetos</a>
       <a href="#github">GitHub</a>
       <a href="#contato">Contato</a>
     </nav>
+    <nav-overlay></nav-overlay>
   </header>
 
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-left">
-        <h1>
-          Backend <span id="typing"></span>
-        </h1>
-        <p id="about-me" class="reveal">
-          Soluções em tecnologia para sites, automações em selenium,
-          construções de APIs e aplicações desktop.
-        </p>
-      </div>
+  <main>
 
-      <div class="hero-right">
-        <div class="hero-stage">
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero">
+      <div class="hero-container">
 
-          <div class="hero-core">
-            <div class="orbit orbit-1"></div>
-            <div class="orbit orbit-2"></div>
-            <img src="media/logo_python.png" alt="Python">
-          </div>
-
-          <div class="hero-core">
-            <div class="orbit orbit-1"></div>
-            <div class="orbit orbit-2"></div>
-            <img src="media/logo_selenium.png" alt="Selenium">
-          </div>
-
+        <div class="hero-text">
+          <p class="hero-greeting reveal">Olá, eu sou</p>
+          <h1 class="hero-title reveal">
+            Backend <span id="typing"></span>
+          </h1>
+          <p id="about-me" class="reveal">
+            Soluções em tecnologia para sites, automações com Selenium,
+            construções de APIs e aplicações desktop.
+          </p>
         </div>
 
-        <p id="txt-abt-py-se" class="reveal">
-          Python + Selenium:
-          Descubra como ter soluções robustas para tarefas do dia a dia,
-          otimizando o trabalho de sua equipe e obtendo resultados mais
-          rentáveis para o seu negócio.
-        </p>
+        <div class="hero-visual reveal">
+          <div class="hero-stage">
+            <div class="hero-core">
+              <div class="orbit orbit-1"></div>
+              <div class="orbit orbit-2"></div>
+              <img src="media/logo_python.png" alt="Python">
+            </div>
+            <div class="hero-core">
+              <div class="orbit orbit-1"></div>
+              <div class="orbit orbit-2"></div>
+              <img src="media/logo_selenium.png" alt="Selenium">
+            </div>
+          </div>
+          <p id="txt-abt-py-se" class="reveal">
+            <strong>Python + Selenium:</strong>
+            Descubra como ter soluções robustas para tarefas do dia a dia,
+            otimizando o trabalho de sua equipe e obtendo resultados mais
+            rentáveis para o seu negócio.
+          </p>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <section id="tech" class="reveal">
+    <!-- ============ ESPECIALIDADES ============ -->
+    <section id="tech" class="reveal">
+      <p class="section-subtitle">Tecnologias que domino</p>
       <h2>Especialidades</h2>
       <div class="tech-grid">
 
         <div class="tech-card reveal">
           <h3>Linguagens Python e C#</h3>
-
           <div class="tech-icons">
             <img src="media/logo_python.png" alt="Python">
             <img src="media/csharp_logo.png" alt="C#">
           </div>
-
           <div class="skill-bars">
             <div class="skill-item">
               <div class="skill-header">
@@ -113,11 +126,9 @@
 
         <div class="tech-card reveal">
           <h3>Banco de dados MySQL</h3>
-
           <div class="tech-icons">
             <img src="media/logo_mysql.png" alt="MySQL">
           </div>
-
           <div class="skill-bars">
             <div class="skill-item">
               <div class="skill-header">
@@ -133,12 +144,10 @@
 
         <div class="tech-card reveal">
           <h3>Machine e Deep Learning</h3>
-
           <div class="tech-icons">
             <img src="media/pytorch_sf.png" alt="PyTorch">
             <img src="media/sklearn_logo.png" alt="Scikit-Learn">
           </div>
-
           <div class="skill-bars">
             <div class="skill-item">
               <div class="skill-header">
@@ -163,11 +172,9 @@
 
         <div class="tech-card reveal">
           <h3>Docker</h3>
-
           <div class="tech-icons">
             <img src="media/docker_sf.png" alt="Docker">
           </div>
-
           <div class="skill-bars">
             <div class="skill-item">
               <div class="skill-header">
@@ -184,114 +191,173 @@
       </div>
     </section>
 
-  <section id="main-projects" class="reveal">
+    <!-- ============ PROJETOS ============ -->
+    <section id="main-projects" class="reveal">
+      <p class="section-subtitle">O que já construí</p>
+      <h2>Principais Projetos</h2>
 
-    <h2>Principais Projetos</h2>
+      <div class="projects">
 
-    <div class="projects">
-
-      <div class="project-card">
-        <div class="project-inner">
-
-          <h3>Automação</h3>
-          <p>Automação de cobranças para academias</p>
-
-          <ul class="project-list">
-            <li>Integração com sistema de pagamento</li>
-            <li>Envio automático de confirmação</li>
-            <li>Registro de transações</li>
-            <li>Redução de tarefas manuais</li>
-          </ul>
-
-          <div class="project-actions">
-            <a href="https://github.com/mattospedrof" target="_blank" class="project-btn">
-              <img src="media/new_redirect.png" class="project-arrow" alt="Redirecionar">
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-inner">
-
-          <h3>Deep Learning</h3>
-          <p>Modelo preditivo de peptídeos antimicrobianos</p>
-
-          <ul class="project-list">
-            <li>Treinamento por Bancos de Dados Biológicos </li>
-            <li>Crição de Modelo Deep Learning</li>
-            <li>Análise de padrões de sequências</li>
-            <li>Predição de novas sequências</li>
-          </ul>
-
-          <div class="project-actions">
-            <a href="https://github.com/mattospedrof/Pytorch-Peptides" target="_blank" class="project-btn">
-              <img src="media/new_redirect.png" class="project-arrow" alt="Redirecionar">
-            </a>
+        <div class="project-card reveal">
+          <div class="project-inner">
+            <div class="project-header">
+              <span class="project-tag">Automação</span>
+            </div>
+            <h3>Automação de Cobranças</h3>
+            <p>Sistema automatizado de cobranças para academias</p>
+            <div class="project-screenshot">
+              <img src="" alt="">
+            </div>
+            <ul class="project-list">
+              <li>Integração com sistema de pagamento</li>
+              <li>Envio automático de confirmação</li>
+              <li>Registro de transações</li>
+              <li>Redução de tarefas manuais</li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://github.com/mattospedrof" target="_blank" class="project-btn" rel="noopener noreferrer">
+                <img src="media/new_redirect.png" alt="Abrir projeto">
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
-
-  </section>
-
-  <section id="github" class="reveal">
-    <h2>GitHub Insights</h2>
-
-    <div class="github-grid">
-
-      <div class="github-card reveal">
-        <h3>Linguagens</h3>
-        <div class="languages-chart-container">
-          <canvas id="languagesChart"></canvas>
+        <div class="project-card reveal">
+          <div class="project-inner">
+            <div class="project-header">
+              <span class="project-tag">Deep Learning</span>
+            </div>
+            <h3>Peptídeos Antimicrobianos</h3>
+            <p>Modelo preditivo de peptídeos antimicrobianos</p>
+            <div class="project-screenshot">
+              <img src="media/screen_project_peptides.png" alt="Screenshot do projeto Peptídeos">
+            </div>
+            <ul class="project-list">
+              <li>Treinamento por Bancos de Dados Biológicos</li>
+              <li>Criação de Modelo Deep Learning</li>
+              <li>Análise de padrões de sequências</li>
+              <li>Predição de novas sequências</li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://github.com/mattospedrof/Pytorch-Peptides" target="_blank" class="project-btn" rel="noopener noreferrer">
+                <img src="media/new_redirect.png" alt="Abrir projeto">
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="github-card reveal">
-        <h3>Estatísticas</h3>
-        <div class="stats-wrapper">
-          <div class="stats-text" id="statsInfo"></div>
-          <img src="media/logo_github.png" alt="GitHub Logo" class="github-logo">
+        <div class="project-card reveal">
+          <div class="project-inner">
+            <div class="project-header">
+              <span class="project-tag">Automação</span>
+            </div>
+            <h3>Automated WPP</h3>
+            <p>Automação personalizada para whatsapp</p>
+            <div class="project-screenshot">
+              <img src="media/screen_project_wpp_sender.png" alt="Screenshot do projeto WPP Sender">
+            </div>
+            <ul class="project-list">
+              <li>Personalização de envio</li>
+              <li>Detecção de colunas da planilha</li>
+              <li>Atualização em tempo real</li>
+              <li>Redução de custos</li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://github.com/mattospedrof/Automated-WPP" target="_blank" class="project-btn" rel="noopener noreferrer">
+                <img src="media/new_redirect.png" alt="Abrir projeto">
+              </a>
+            </div>
+          </div>
         </div>
+
+        <div class="project-card reveal">
+          <div class="project-inner">
+            <div class="project-header">
+              <span class="project-tag">Gestão</span>
+            </div>
+            <h3>FA-Clinic</h3>
+            <p>Gestão para clínicas médicas</p>
+            <div class="project-screenshot">
+              <img src="media/screen_fa_clinic.png" alt="Screenshot do projeto FA-Clinic">
+            </div>
+            <ul class="project-list">
+              <li>Gestão de clínicas</li>
+              <li>Insights financeiros</li>
+              <li>Agendamentos enviados por email e whatsapp</li>
+              <li>Conta única para recepção</li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://fa-clinic.vercel.app/apresentation" target="_blank" class="project-btn" rel="noopener noreferrer">
+                <img src="media/new_redirect.png" alt="Abrir projeto">
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contato" class="reveal">
-    <h2>Contato</h2>
+    <!-- ============ GITHUB ============ -->
+    <section id="github" class="reveal">
+      <p class="section-subtitle">Atividade em código</p>
+      <h2>GitHub Insights</h2>
 
-    <form class="contact-form" id="contactForm">
+      <div class="github-grid">
 
-      <input type="text" id="name" placeholder="Primeiro nome" pattern="[A-Za-zÀ-ÿ\s]{2,30}" required>
-      <input type="tel" id="phone" placeholder="Celular" maxlength="15" inputmode="numeric">
-      <input type="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-      <textarea id="message" rows="4" placeholder="Mensagem" maxlength="1000" required></textarea>
+        <div class="github-card reveal">
+          <h3>Linguagens</h3>
+          <div class="languages-chart-container">
+            <canvas id="languagesChart"></canvas>
+          </div>
+        </div>
 
-      <div class="contact-buttons">
-
-        <button type="button" id="whatsappBtn">
-          <img src="media/whatsapp_logo.png" alt="WhatsApp">
-          Enviar WhatsApp
-        </button>
-
-        <button type="button" id="emailBtn">
-          <img src="media/mail_logo.png" alt="Email">
-          Enviar um Email
-        </button>
+        <div class="github-card reveal">
+          <h3>Estatísticas</h3>
+          <div class="stats-wrapper">
+            <div class="stats-text" id="statsInfo"></div>
+            <img src="media/logo_github.png" alt="GitHub" class="github-logo">
+          </div>
+        </div>
 
       </div>
+    </section>
 
-    </form>
-  </section>
+    <!-- ============ CONTATO ============ -->
+    <section id="contato" class="reveal">
+      <p class="section-subtitle">Vamos conversar</p>
+      <h2>Contato</h2>
 
+      <div class="contact-wrapper reveal">
+        <form class="contact-form" id="contactForm">
+          <input type="text" id="name" placeholder="Primeiro nome" pattern="[A-Za-zÀ-ÿ\s]{2,30}" required aria-label="Seu nome">
+          <input type="tel" id="phone" placeholder="Celular (opcional)" pattern="\(\d{2}\)\s\d{4,5}-\d{4}" maxlength="15" inputmode="numeric" aria-label="Seu celular">
+          <input type="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required aria-label="Seu email">
+          <textarea id="message" rows="4" placeholder="Mensagem" maxlength="1000" required aria-label="Sua mensagem"></textarea>
+
+          <div class="contact-buttons">
+            <button type="button" id="whatsappBtn">
+              <img src="media/whatsapp_logo.png" alt="WhatsApp">
+              Enviar WhatsApp
+            </button>
+            <button type="button" id="emailBtn">
+              <img src="media/mail_logo.png" alt="Email">
+              Enviar um Email
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
   <footer>
-    © 2026 Frannkz Tech • By Pedro
+    <p>© 2026 Frannkz Tech • By Pedro Franco</p>
+    <p class="footer-tag">Feito com Python no coração ☕</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="engine_test.js"></script>
 </body>
 
 </html>

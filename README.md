@@ -1,77 +1,46 @@
-# Frannkz Tech — Portfólio Pessoal
+# Frannkz Tech
 
-Portfólio pessoal de Pedro Franco, Backend Developer especializado em Python, automações e APIs.
+Portfólio pessoal de Pedro Franco, desenvolvido para apresentar serviços, especialidades e projetos com foco em backend, automações e soluções digitais sob medida.
 
-🔗 **[frannkz-tech.vercel.app](https://frannkz-tech.vercel.app)**
+**Acesse:** [frannkz-tech.vercel.app](https://frannkz-tech.vercel.app)
 
----
+## Sobre o projeto
 
-## Seções
+O site funciona como uma vitrine profissional da Frannkz Tech, reunindo apresentação institucional, áreas de atuação, projetos em destaque, métricas públicas do GitHub e canais de contato em uma experiência visual direta e responsiva.
 
-- **Hero** — Apresentação com efeito de digitação animada e ícones orbitais
-- **Especialidades** — Cards de tecnologias com barras de proficiência animadas
-- **Projetos** — Principais projetos com links para o GitHub
-- **GitHub Insights** — Estatísticas e gráfico de linguagens em tempo real via API
-- **Contato** — Formulário com validação em tempo real e envio por WhatsApp ou Email
+Mais do que uma landing page, a proposta é transmitir posicionamento profissional, clareza técnica e identidade visual própria em cada seção.
 
----
+## O que a página destaca
 
-## Tecnologias
+- Apresentação da marca e do perfil profissional de Pedro Franco
+- Especialidades em Python, C#, MySQL, Docker, PyTorch e Scikit-Learn
+- Projetos principais ligados a automação, APIs, aplicações desktop e soluções web
+- Integração com GitHub para exibir estatísticas e linguagens utilizadas
+- Área de contato pensada para conversão e aproximação com clientes e parceiros
 
-**Frontend**
+## Experiência proposta
+
+O portfólio foi desenhado para combinar credibilidade técnica com dinamismo visual. A navegação valoriza animações sutis, blocos de conteúdo objetivos e uma leitura fluida em desktop e mobile, reforçando a proposta de um profissional voltado a performance, automação e resultado.
+
+## Stack utilizada
+
 - HTML5
-- CSS3 — animações, scroll reveal, layout responsivo (mobile-first)
-- JavaScript (Vanilla ES6+)
-- Chart.js — gráfico de linguagens (doughnut chart com plugin customizado)
-
-**Integrações**
-- GitHub REST API — busca repositórios, commits e linguagens em tempo real
-- localStorage — cache de 12h para evitar limite de requisições da API
-- WhatsApp API (`wa.me`) — envio de mensagens direto pelo formulário
-- mailto — alternativa de contato por e-mail
-- Google Fonts — fonte Inter
-
-**Deploy**
+- CSS3
+- JavaScript Vanilla
+- Chart.js
+- GitHub REST API
 - Vercel
-- Open Graph — preview de link no WhatsApp, Telegram e redes sociais
 
----
+## Estrutura do projeto
 
-## Funcionalidades técnicas
-
-- **Typing effect** — alterna entre "Developer" e "Engineer" com animação de cursor
-- **Gráfico responsivo** — legenda reposicionada automaticamente entre desktop (`right`) e mobile (`bottom`), com recriação ao redimensionar a janela
-- **Skill bars** — animadas via Intersection Observer ao entrar na viewport
-- **Validação em tempo real** — feedback visual (verde/vermelho) campo a campo com mensagens de erro
-- **Máscara de telefone** — formatação automática `(99) 99999-9999` durante a digitação
-- **Cache inteligente** — dados do GitHub armazenados por 12h com fallback para modo anônimo e Safari ITP
-- **Scroll reveal** — elementos aparecem suavemente ao rolar a página
-
----
-
-## Estrutura
-
-```
-/
-├── index.html
-├── style.css
-├── engine.js
-└── media/
+```text
+.
+|-- index.html
+|-- style.css
+|-- engine.js
+`-- media/
 ```
 
----
+## Frannkz Tech
 
-## Como rodar localmente
-
-```bash
-git clone https://github.com/mattospedrof/frannkz-tech
-cd frannkz-tech
-```
-
-Abra o `index.html` com o Live Server do VS Code ou qualquer servidor local.
-
-> **Dica:** O Live Server pode exibir o site em escala ligeiramente diferente do deploy. Use `Ctrl+Shift+-` para ajustar o zoom do browser a ~80% e ter uma visualização fiel ao ambiente de produção.
-
----
-
-© 2026 Frannkz Tech • By Pedro Franco
+Uma presença digital criada para apresentar soluções em tecnologia com linguagem clara, visual forte e foco em impacto real para negócios.

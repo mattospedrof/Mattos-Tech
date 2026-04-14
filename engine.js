@@ -1,23 +1,70 @@
-// =============================
-// Skill Bars — Animar ao revelar
-// =============================
-function animateSkillBars() {
-  const bars = document.querySelectorAll(".skill-bar-fill[data-width]");
-  bars.forEach(bar => {
-    const rect = bar.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 60 && bar.style.width === "0%") {
-      bar.style.width = bar.dataset.width;
-    }
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+const navOverlay = document.querySelector('nav-overlay');
+
+function closeMenu() {
+  if (menuToggle) menuToggle.classList.remove('active');
+  if (nav) nav.classList.remove('open');
+  if (navOverlay) navOverlay.classList.remove('show');
+  if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    menuToggle.classList.toggle('active');
+    navOverlay.classList.toggle('show');
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 }
 
-window.addEventListener("scroll", animateSkillBars);
+if (navOverlay) {
+  navOverlay.addEventListener('click', closeMenu);
+}
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
+});
+
+
+function throttle(fn, delay = 100) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      fn.apply(this, args);
+    }
+  };
+}
+
+
+function animateSkillBars() {
+  const bars = document.querySelectorAll(".skill-bar-fill[data-width]");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        if (bar.style.width === "0%" || !bar.style.width) {
+          bar.style.width = bar.dataset.width;
+        }
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  bars.forEach(bar => observer.observe(bar));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Pequeno delay para garantir que o CSS já aplicou width:0%
   setTimeout(animateSkillBars, 200);
 });
 
-// Typing Effect
+
 const words = ["Developer", "Engineer"];
 let i = 0, j = 0, currentWord = '', isDeleting = false;
 
@@ -47,9 +94,9 @@ function type() {
 type();
 
 
-// Animated Pie
 function animatePieChart(segments) {
   const pie = document.getElementById("pieChart");
+  if (!pie) return;
   const duration = 1200;
   const startTime = performance.now();
 
@@ -74,6 +121,8 @@ function animatePieChart(segments) {
 }
 
 
+const EMAIL_REGEX = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i;
+
 async function fetchGitHubStats() {
   const username = "mattospedrof";
   const CACHE_KEY = "gh_stats_data";
@@ -87,22 +136,22 @@ async function fetchGitHubStats() {
     lastUpdate = localStorage.getItem(CACHE_TIME_KEY);
     cachedData = localStorage.getItem(CACHE_KEY);
   } catch(e) {
-    console.warn("localStorage indisponível (modo anônimo ou Safari ITP):", e);
+    console.warn("localStorage indisponível:", e);
   }
 
   if (cachedData && lastUpdate && (now - lastUpdate < TWELVE_HOURS)) {
-    console.log("Exibindo dados do cache (Atualizado há menos de 12h)");
+    console.log("Exibindo dados do cache (< 12h)");
     renderData(JSON.parse(cachedData));
     return;
   }
 
-  console.log("Cache expirado ou inexistente. Buscando novos dados da API...");
+  console.log("Buscando novos dados da API...");
 
   try {
     const repoRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
     const commitRes = await fetch(`https://api.github.com/search/commits?q=author:${username}`);
 
-    if (!repoRes.ok || !commitRes.ok) throw new Error("Limite da API atingido");
+    if (!repoRes.ok || !commitRes.ok) throw new Error("Limite da API Github atingido.");
 
     const repos = await repoRes.json();
     const commitData = await commitRes.json();
@@ -130,7 +179,6 @@ async function fetchGitHubStats() {
       languages: langs
     };
 
-    // Salva no LocalStorage (com proteção para modo anônimo/Safari)
     try {
       localStorage.setItem(CACHE_KEY, JSON.stringify(finalData));
       localStorage.setItem(CACHE_TIME_KEY, now.toString());
@@ -142,7 +190,14 @@ async function fetchGitHubStats() {
 
   } catch (error) {
     console.error("Erro ao buscar API:", error);
-    if (cachedData) renderData(JSON.parse(cachedData))
+    if (cachedData) {
+      renderData(JSON.parse(cachedData));
+    } else {
+      document.getElementById("statsInfo").innerHTML = `
+        <p>⚠️ Dados indisponíveis no momento.</p>
+        <p><a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" style="color:#1e90ff;">Visite o GitHub →</a></p>
+      `;
+    }
   }
 }
 
@@ -153,49 +208,45 @@ function renderData(data) {
     <p>Último Projeto: <strong>${data.lastRepo || "N/A"}</strong></p>
   `;
 
-  renderPieChart(data.languages); 
+  renderPieChart(data.languages);
 }
 
-function renderPieChart(languages) {
+const centerTextPlugin = {
+  id: "centerText",
+  beforeDraw(chart) {
+    if (!centerTextPlugin._text) return;
 
+    const { ctx, chartArea } = chart;
+    const isMobile = window.innerWidth <= 768;
+    const centerX = (chartArea.left + chartArea.right) / 2;
+    const centerY = (chartArea.top + chartArea.bottom) / 2;
+
+    ctx.save();
+    ctx.font = isMobile ? "bold 18px Arial" : "bold 40px Arial";
+    ctx.shadowColor = "#010d8b";
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = "#00c3ff";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(centerTextPlugin._text, centerX, centerY);
+    ctx.restore();
+  }
+};
+centerTextPlugin._text = "";
+
+function renderPieChart(languages) {
   const ctx = document.getElementById("languagesChart");
+  if (!ctx) return;
+
+  const existing = Chart.getChart(ctx);
+  if (existing) existing.destroy();
 
   const labels = Object.keys(languages);
   const values = Object.values(languages);
-
   const isMobile = window.innerWidth <= 768;
-  let centerText = "";
-
-  const centerTextPlugin = {
-    id: "centerText",
-
-    beforeDraw(chart) {
-
-      if (!centerText) return;
-
-      const {ctx, chartArea} = chart;
-
-      const centerX = (chartArea.left + chartArea.right) / 2;
-      const centerY = (chartArea.top + chartArea.bottom) / 2;
-
-      ctx.save();
-
-      ctx.font = isMobile ? "bold 18px Arial" : "bold 40px Arial";
-      ctx.shadowColor = "#010d8b";
-      ctx.shadowBlur = 10;
-      ctx.fillStyle = "#00c3ff";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-
-      ctx.fillText(centerText, centerX, centerY);
-
-      ctx.restore();
-    }
-  };
 
   new Chart(ctx, {
     type: "doughnut",
-
     data: {
       labels: labels,
       datasets: [{
@@ -212,21 +263,15 @@ function renderPieChart(languages) {
         hoverOffset: 10
       }]
     },
-
     options: {
-
       responsive: true,
       maintainAspectRatio: false,
-
       cutout: "65%",
-
       animation: {
         animateRotate: true,
         duration: 1800
       },
-
       plugins: {
-
         legend: {
           position: isMobile ? "bottom" : "right",
           labels: {
@@ -237,49 +282,35 @@ function renderPieChart(languages) {
             padding: isMobile ? 8 : 20
           }
         },
-
         tooltip: {
           callbacks: {
             label: function(context) {
-
               const value = context.raw;
-              const total = context.dataset.data.reduce((a,b)=>a+b,0);
-
-              const percent = ((value/total)*100).toFixed(1);
-
-              centerText = percent + "%";
-
+              const total = context.dataset.data.reduce((a, b) => a + b, 0);
+              const percent = ((value / total) * 100).toFixed(1);
+              centerTextPlugin._text = percent + "%";
               return `${context.label}: ${percent}%`;
             }
           }
         }
-
       },
-
       onHover: (event, chartElement) => {
-
         const canvas = event.chart.canvas;
-
-        if(chartElement.length){
+        if (chartElement.length) {
           canvas.style.filter = "drop-shadow(0 0 15px #07668336)";
-        }else{
+        } else {
           canvas.style.filter = "none";
-          centerText = "";
+          centerTextPlugin._text = "";
         }
-
       }
-
     },
-
     plugins: [centerTextPlugin]
-
   });
 }
 
 fetchGitHubStats();
 
-// Recria o gráfico se o usuário redimensionar a janela
-// (isMobile é capturado no momento da criação, então precisa recriar)
+
 let resizeTimer;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
@@ -303,10 +334,10 @@ window.addEventListener("resize", () => {
 });
 
 
-// WhatsApp and Mail
 const form = document.getElementById("contactForm");
+
 document.getElementById("whatsappBtn").addEventListener("click", function(){
-  if(!form.checkValidity()){
+  if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
@@ -315,16 +346,19 @@ document.getElementById("whatsappBtn").addEventListener("click", function(){
   const phone = document.getElementById("phone").value;
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
-  const text = `Olá, meu nome é ${name}.${message}`;
-  const url = `https://wa.me/5567993349290?text=${encodeURIComponent(text)}`;
 
-  window.open(url, "_blank");
+  let text = `Olá, meu nome é ${name}.`;
+  if (phone) text += `\nTelefone: ${phone}`;
+  if (email) text += `\nEmail: ${email}`;
+  text += `\n\n${message}`;
+
+  const url = `https://wa.me/5567993349290?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
   document.getElementById("contactForm").reset();
 });
 
-
 document.getElementById("emailBtn").addEventListener("click", function(){
-  if(!form.checkValidity()){
+  if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
@@ -334,16 +368,13 @@ document.getElementById("emailBtn").addEventListener("click", function(){
   const phone = document.getElementById("phone").value;
   const message = document.getElementById("message").value;
   const subject = "Contato pelo site: ";
-  const body = `${message}`;
+  const body = `Nome: ${name}\nEmail: ${email}\n${phone ? 'Telefone: ' + phone + '\n' : ''}\n${message}`;
   const url = `mailto:francobiomed@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   window.open(url, "_blank", "noopener,noreferrer");
   document.getElementById("contactForm").reset();
 });
 
-
-
-// Real Time Validation
 document.addEventListener("DOMContentLoaded", () => {
 
   const rules = {
@@ -352,11 +383,11 @@ document.addEventListener("DOMContentLoaded", () => {
       message: "Use apenas letras (3 a 30 caracteres)."
     },
     phone: {
-      validate: (v) => v === "" || /^\(\d{2}\)\s\d{5}-\d{4}$/.test(v),
+      validate: (v) => v === "" || /^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(v),
       message: "Formato esperado: (99) 99999-9999."
     },
     email: {
-      validate: (v) => /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i.test(v.trim()),
+      validate: (v) => EMAIL_REGEX.test(v.trim()),
       message: "Insira um e-mail válido. Ex: nome@email.com"
     },
     message: {
@@ -428,48 +459,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Scroll Reveal Universal
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  const phoneInput = document.getElementById("phone")
+  const phoneInput = document.getElementById("phone");
 
-  if(phoneInput){
-    phoneInput.addEventListener("input", function(e){
-
+  if (phoneInput) {
+    phoneInput.addEventListener("input", function(e) {
       let value = e.target.value.replace(/\D/g, "");
 
-      if(value.length > 11) value = value.slice(0,11);
+      if (value.length > 11) value = value.slice(0, 11);
 
-      if(value.length > 10){
+      if (value.length > 10) {
         value = value.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
-      }else if(value.length > 6){
+      } else if (value.length > 6) {
         value = value.replace(/(\d{2})(\d{4})(\d+)/, "($1) $2-$3");
-      }else if(value.length > 2){
+      } else if (value.length > 2) {
         value = value.replace(/(\d{2})(\d+)/, "($1) $2");
-      }else if(value.length > 0){
+      } else if (value.length > 0) {
         value = value.replace(/(\d+)/, "($1");
       }
 
       e.target.value = value;
+    });
+  }
 
-  });
-}
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
 
   const reveals = document.querySelectorAll(".reveal");
 
-  function revealOnScroll(){
+  function revealOnScroll() {
     const windowHeight = window.innerHeight;
 
     reveals.forEach(element => {
       const elementTop = element.getBoundingClientRect().top;
 
-      if(elementTop < windowHeight - 100){
+      if (elementTop < windowHeight - 100) {
         element.classList.add("visible");
       }
     });
   }
 
-  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("scroll", throttle(revealOnScroll, 80));
   revealOnScroll();
 
 });
