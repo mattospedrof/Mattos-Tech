@@ -1,0 +1,23 @@
+{
+  "name": "primary",
+  "version": "1.0.0",
+  "description": "Portfólio pessoal de Pedro Franco, desenvolvido para apresentar serviços, especialidades e projetos com foco em backend, automações e soluções digitais sob medida.",
+  "main": "engine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattospedrof/Mattos-Tech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattospedrof/Mattos-Tech/issues"
+  },
+  "homepage": "https://github.com/mattospedrof/Mattos-Tech#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
