@@ -195,7 +195,7 @@ async function fetchGitHubStats() {
     } else {
       document.getElementById("statsInfo").innerHTML = `
         <p>⚠️ Dados indisponíveis no momento.</p>
-        <p><a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" style="color:#1e90ff;">Visite o GitHub →</a></p>
+        <p><a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" style="color:#00d9ff;">Visite o GitHub →</a></p>
       `;
     }
   }
@@ -223,9 +223,9 @@ const centerTextPlugin = {
 
     ctx.save();
     ctx.font = isMobile ? "bold 18px Arial" : "bold 40px Arial";
-    ctx.shadowColor = "#010d8b";
-    ctx.shadowBlur = 10;
-    ctx.fillStyle = "#00c3ff";
+    ctx.shadowColor = "#00d9ff9f";
+    ctx.shadowBlur = 1;
+    ctx.fillStyle = "#00d9ff";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(centerTextPlugin._text, centerX, centerY);
@@ -253,12 +253,12 @@ function renderPieChart(languages) {
         data: values,
         borderWidth: 0,
         backgroundColor: [
-          "#070b5d",
-          "#E34F26",
-          "#F37626",
-          "#239120",
-          "#e3eb0c",
-          "#336791"
+          "#4f8ef7",
+          "#00d9ff",
+          "#818cf8",
+          "#00c9a7",
+          "#f59e0b",
+          "#e879a0"
         ],
         hoverOffset: 10
       }]
@@ -275,9 +275,10 @@ function renderPieChart(languages) {
         legend: {
           position: isMobile ? "bottom" : "right",
           labels: {
-            color: "white",
+            color: "rgba(220,230,255,0.8)",
             font: {
-              size: isMobile ? 12 : 20
+              size: isMobile ? 12 : 18,
+              family: "'Plus Jakarta Sans', sans-serif"
             },
             padding: isMobile ? 8 : 20
           }
@@ -297,7 +298,7 @@ function renderPieChart(languages) {
       onHover: (event, chartElement) => {
         const canvas = event.chart.canvas;
         if (chartElement.length) {
-          canvas.style.filter = "drop-shadow(0 0 15px #07668336)";
+          canvas.style.filter = "drop-shadow(0 0 15px rgba(0,217,255,0.3))";
         } else {
           canvas.style.filter = "none";
           centerTextPlugin._text = "";

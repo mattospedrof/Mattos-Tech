@@ -3,3 +3,6 @@ node_modules
 .env
 .qwen
 RULES.MD
+index_2.html
+style_2.css
+engine_2.js

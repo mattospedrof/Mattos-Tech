@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="media/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Frannkz Tech By Pedro Franco">
-  <meta name="theme-color" content="#0a192f">
+  <meta name="theme-color" content="#060d1f">
   <meta name="keywords" content="backend developer, python, selenium, APIs, automação, Pedro Franco">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://api.github.com https://wa.me; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.github.com https://vitals.vercel-insights.com; script-src 'self' https://cdn.jsdelivr.net https://va.vercel-scripts.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline';">
   <title>Frannkz Tech</title>
@@ -14,7 +14,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://frannkz-tech.vercel.app/">
   <meta property="og:title"       content="Frannkz Tech">
-  <meta property="og:description" content="Backend Developer — soluções em Python, Selenium, APIs e aplicações desktop.">
+  <meta property="og:description" content="Full Stack Developer — soluções web com Java e Next.Js">
   <meta property="og:image"       content="https://frannkz-tech.vercel.app/media/favicon-32x32.png">
 
   <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
@@ -22,9 +22,9 @@
   <link rel="icon" href="media/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_2.css">
 </head>
 
 <body>
@@ -56,18 +56,36 @@
       <div class="hero-container">
 
         <div class="hero-text">
+          <div class="hero-badge reveal">
+            <span class="badge-dot"></span>
+            Disponível para trabalho/projetos
+          </div>
           <p class="hero-greeting reveal">Olá, eu sou</p>
           <h1 class="hero-title reveal">
-            Full Stack <span id="typing"></span>
+            Full Stack<br><span id="typing"></span>
           </h1>
           <p id="about-me" class="reveal">
-            Soluções em tecnologia para sites, automações com Selenium,
-            construções de APIs e aplicações desktop.
+            Quer transformar seu negócio em uma verdadeira
+            identidade? Podemos te ajudar nisso!
           </p>
+          <div class="hero-cta reveal">
+            <a href="#contato" class="cta-primary">Fale Comigo</a>
+            <a href="#main-projects" class="cta-secondary">Ver Projetos</a>
+          </div>
         </div>
 
         <div class="hero-visual reveal">
           <div class="hero-stage">
+            <div class="hero-core">
+              <div class="orbit orbit-1"></div>
+              <div class="orbit orbit-2"></div>
+              <img src="media/spring-boot.png" alt="Spring">
+            </div>
+            <div class="hero-core">
+              <div class="orbit orbit-1"></div>
+              <div class="orbit orbit-2"></div>
+              <img src="media/next-16.png" alt="NEXT.JS">
+            </div>
             <div class="hero-core">
               <div class="orbit orbit-1"></div>
               <div class="orbit orbit-2"></div>
@@ -80,13 +98,17 @@
             </div>
           </div>
           <p id="txt-abt-py-se" class="reveal">
+            <strong>Spring Boot + Next.Js:</strong>
+            Soluções web modernas e escaláveis.<br>
             <strong>Python + Selenium:</strong>
-            Descubra como ter soluções robustas para tarefas do dia a dia,
-            otimizando o trabalho de sua equipe e obtendo resultados mais
-            rentáveis para o seu negócio.
+            Soluções em automação web para qualquer interface.
           </p>
         </div>
 
+      </div>
+
+      <div class="scroll-indicator reveal">
+        <span></span>
       </div>
     </section>
 
@@ -97,12 +119,42 @@
       <div class="tech-grid">
 
         <div class="tech-card reveal">
-          <h3>Linguagens Python e C#</h3>
+          <h3>Linguagens</h3>
           <div class="tech-icons">
-            <img src="media/logo_python.png" alt="Python">
+            <img src="media/java_icon.png" alt="Java">
+            <img src="media/js_icon.png" alt="JS">
+            <img src="media/ts_icon.png" alt="TS">
+            <img src="media/python_icon.png" alt="Python">
             <img src="media/csharp_logo.png" alt="C#">
           </div>
           <div class="skill-bars">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-label">Java</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill intermediario" style="width:0%" data-width="60%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-label">JavaScript</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill avancado" style="width:0%" data-width="95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-label">TypeScript</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill intermediario" style="width:0%" data-width="60%"></div>
+              </div>
+            </div>
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-label">Python</span>
@@ -125,9 +177,10 @@
         </div>
 
         <div class="tech-card reveal">
-          <h3>Banco de dados MySQL</h3>
+          <h3>Banco de dados</h3>
           <div class="tech-icons">
             <img src="media/logo_mysql.png" alt="MySQL">
+            <img src="media/postgresql.png" alt="PostgreSQL">
           </div>
           <div class="skill-bars">
             <div class="skill-item">
@@ -137,6 +190,15 @@
               </div>
               <div class="skill-bar-track">
                 <div class="skill-bar-fill intermediario" style="width:0%" data-width="55%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-label">PostgreSQL</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill intermediario" style="width:0%" data-width="65%"></div>
               </div>
             </div>
           </div>
@@ -155,7 +217,7 @@
                 <span class="skill-level">Intermediário</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill intermediario" style="width:0%" data-width="55%"></div>
+                <div class="skill-bar-fill intermediario" style="width:0%" data-width="65%"></div>
               </div>
             </div>
             <div class="skill-item">
@@ -164,14 +226,14 @@
                 <span class="skill-level">Básico</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill basico" style="width:0%" data-width="30%"></div>
+                <div class="skill-bar-fill basico" style="width:0%" data-width="40%"></div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="tech-card reveal">
-          <h3>Docker</h3>
+          <h3>CI/CD</h3>
           <div class="tech-icons">
             <img src="media/docker_sf.png" alt="Docker">
           </div>
@@ -179,10 +241,10 @@
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-label">Docker</span>
-                <span class="skill-level">Básico</span>
+                <span class="skill-level">Intermediário</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill basico" style="width:0%" data-width="30%"></div>
+                <div class="skill-bar-fill intermediario" style="width:0%" data-width="55%"></div>
               </div>
             </div>
           </div>
@@ -305,14 +367,14 @@
       <div class="github-grid">
 
         <div class="github-card reveal">
-          <h3>Linguagens</h3>
+          <h3>Estatísticas - Linguagens</h3>
           <div class="languages-chart-container">
             <canvas id="languagesChart"></canvas>
           </div>
         </div>
 
         <div class="github-card reveal">
-          <h3>Estatísticas</h3>
+          <h3>Estatísticas - Commits e Repo</h3>
           <div class="stats-wrapper">
             <div class="stats-text" id="statsInfo"></div>
             <img src="media/logo_github.png" alt="GitHub" class="github-logo">
@@ -353,12 +415,12 @@
   <!-- ============ FOOTER ============ -->
   <footer>
     <p>© 2026 Frannkz Tech • By Pedro Franco</p>
-    <p class="footer-tag">Feito com Python no coração ☕</p>
+    <p class="footer-tag">Feito a base de muito café ☕</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="engine.js"></script>
-  
+  <script src="engine_2.js"></script>
+
   <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
